@@ -11,13 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FileworxObjectClassLibrary;
+using static FileworxObjectClassLibrary.clsUser;
 
 namespace Fileworx_Client
 {
     public partial class LogIn : Form
     {
-        // Properties
-        private clsUser loggedInUser = new clsUser();
 
         public LogIn()
         {
@@ -32,33 +31,36 @@ namespace Fileworx_Client
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-
             clsUser tryingToLogIn= new clsUser() { Username = logInLogInNameTextBox.Text, Password = logInPasswordTextBox.Text };
-            clsUser.LogInValidationResult validateResult = tryingToLogIn.ValidateLogin();
+            LogInValidationResult validateResult = tryingToLogIn.ValidateLogin();
 
-            if(validateResult == clsUser.LogInValidationResult.Valid)
+            if(validateResult == LogInValidationResult.Valid)
             {
-                loggedInUser = tryingToLogIn;
+                tryingToLogIn.Read();
+
+                Global.LoggedInUser = tryingToLogIn;
                 this.Hide();
 
-                FileWorx fileWorx = new FileWorx(loggedInUser);
+                FileWorx fileWorx = new FileWorx();
                 DialogResult result = fileWorx.ShowDialog();
+
                 if (result == DialogResult.Cancel)
                 {
                     this.Show();
+                    Global.LoggedInUser = null;
                 }
 
                 logInClearTextboxes();
             }
 
-            else if (validateResult == clsUser.LogInValidationResult.WrongPassword)
+            else if (validateResult == LogInValidationResult.WrongPassword)
             {
                 logInPasswordTextBox.Text = String.Empty;
 
                 MessageBox.Show($"Invalid password for {tryingToLogIn.Username}, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            else if (validateResult == clsUser.LogInValidationResult.WrongUser)
+            else if (validateResult == LogInValidationResult.WrongUser)
             {
                 logInPasswordTextBox.Text = String.Empty;
 

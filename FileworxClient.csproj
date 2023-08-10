@@ -98,6 +98,7 @@
     <Compile Include="FileWorx.Designer.cs">
       <DependentUpon>FileWorx.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>

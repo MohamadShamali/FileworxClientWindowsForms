@@ -108,7 +108,7 @@
             this.signOutButton.TabIndex = 74;
             this.signOutButton.Text = "Sign Out";
             this.signOutButton.UseVisualStyleBackColor = true;
-            this.signOutButton.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            //this.signOutButton.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // label7
             // 
@@ -163,14 +163,14 @@
             this.addImageToolStripMenuItem.Name = "addImageToolStripMenuItem";
             this.addImageToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.addImageToolStripMenuItem.Text = "Add Image";
-            this.addImageToolStripMenuItem.Click += new System.EventHandler(this.addImageToolStripMenuItem_Click);
+            //this.addImageToolStripMenuItem.Click += new System.EventHandler(this.addImageToolStripMenuItem_Click);
             // 
             // addNewsToolStripMenuItem
             // 
             this.addNewsToolStripMenuItem.Name = "addNewsToolStripMenuItem";
             this.addNewsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.addNewsToolStripMenuItem.Text = "Add News";
-            this.addNewsToolStripMenuItem.Click += new System.EventHandler(this.addNewsToolStripMenuItem_Click);
+            //this.addNewsToolStripMenuItem.Click += new System.EventHandler(this.addNewsToolStripMenuItem_Click);
             // 
             // showToolStripMenuItem
             // 
@@ -196,28 +196,28 @@
             this.recentToolStripMenuItem.Name = "recentToolStripMenuItem";
             this.recentToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.recentToolStripMenuItem.Text = "Recent";
-            this.recentToolStripMenuItem.Click += new System.EventHandler(this.recentToolStripMenuItem_Click);
+            //this.recentToolStripMenuItem.Click += new System.EventHandler(this.recentToolStripMenuItem_Click);
             // 
             // oldestToolStripMenuItem
             // 
             this.oldestToolStripMenuItem.Name = "oldestToolStripMenuItem";
             this.oldestToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.oldestToolStripMenuItem.Text = "Oldest";
-            this.oldestToolStripMenuItem.Click += new System.EventHandler(this.oldestToolStripMenuItem_Click);
+            //this.oldestToolStripMenuItem.Click += new System.EventHandler(this.oldestToolStripMenuItem_Click);
             // 
             // alphabeticallyToolStripMenuItem
             // 
             this.alphabeticallyToolStripMenuItem.Name = "alphabeticallyToolStripMenuItem";
             this.alphabeticallyToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.alphabeticallyToolStripMenuItem.Text = "Alphabetically";
-            this.alphabeticallyToolStripMenuItem.Click += new System.EventHandler(this.alphabeticallyToolStripMenuItem_Click);
+            //this.alphabeticallyToolStripMenuItem.Click += new System.EventHandler(this.alphabeticallyToolStripMenuItem_Click);
             // 
             // usersListToolStripMenuItem
             // 
             this.usersListToolStripMenuItem.Name = "usersListToolStripMenuItem";
             this.usersListToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.usersListToolStripMenuItem.Text = "Users List";
-            this.usersListToolStripMenuItem.Click += new System.EventHandler(this.usersListToolStripMenuItem_Click);
+            //this.usersListToolStripMenuItem.Click += new System.EventHandler(this.usersListToolStripMenuItem_Click);
             // 
             // splitContainer2
             // 
@@ -259,8 +259,8 @@
             this.newsListView.TabIndex = 75;
             this.newsListView.UseCompatibleStateImageBehavior = false;
             this.newsListView.View = System.Windows.Forms.View.Details;
-            this.newsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.newsListView_MouseClick);
-            this.newsListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.newsListView_MouseDoubleClick);
+            //this.newsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.newsListView_MouseClick);
+            //this.newsListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.newsListView_MouseDoubleClick);
             // 
             // colutmnHeader1
             // 
@@ -408,7 +408,7 @@
             this.MinimumSize = new System.Drawing.Size(1183, 713);
             this.Name = "FileWorx";
             this.Text = "FileWorx";
-            this.Resize += new System.EventHandler(this.FileWorx_Resize);
+            //this.Resize += new System.EventHandler(this.FileWorx_Resize);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

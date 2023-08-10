@@ -8,7 +8,9 @@ namespace Fileworx_Client
 {
     public class EditBeforeRun
     {
-
+        public static string newsDirectory = "";
+        public static string ImagesDirectory = "";
+        public static string savedusersDirectory = "";
         //Complex Seperator
         public static string[] Seperator = { "%%$$##" };
     }
