@@ -10,24 +10,18 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FileworxObjectClassLibrary;
 
 namespace Fileworx_Client
 {
     public partial class LogIn : Form
     {
-        private StreamReader userReader;
-        private List<User> AllUsers = new List<User>();
-        public User LoggedInUser;
+        // Properties
+        private clsUser loggedInUser = new clsUser();
 
         public LogIn()
         {
             InitializeComponent();
-            addAllSavedUsers();
-        }
-
-        private string[] getLogInInfo()
-        {
-            return new string[] { String.Empty, logInLogInNameTextBox.Text, logInPasswordTextBox.Text };
         }
 
         private void logInClearTextboxes()
@@ -38,66 +32,40 @@ namespace Fileworx_Client
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-            AllUsers.Clear();
-            addAllSavedUsers();
 
-            Guid guid = Guid.NewGuid() ;
-            string[] gg = { String.Empty, String.Empty, String.Empty, guid.ToString() , "false" };
-            User loggedInUser = new User(  gg);
-            bool Allow = false;
-            string[] inputUser = getLogInInfo();
+            clsUser tryingToLogIn= new clsUser() { Username = logInLogInNameTextBox.Text, Password = logInPasswordTextBox.Text };
+            clsUser.LogInValidationResult validateResult = tryingToLogIn.ValidateLogin();
 
-            foreach (User user in AllUsers)
+            if(validateResult == clsUser.LogInValidationResult.Valid)
             {
-                if ((user.UserName == inputUser[1]) && (user.Password == inputUser[2]))
-                {
-                    Allow = true;
-                    loggedInUser = user;
-                    LoggedInUser = user;
-                    break;
-                }
-            } 
-
-            if (Allow)
-            {
+                loggedInUser = tryingToLogIn;
                 this.Hide();
+
                 FileWorx fileWorx = new FileWorx(loggedInUser);
                 DialogResult result = fileWorx.ShowDialog();
-                if (result == DialogResult.Cancel) 
+                if (result == DialogResult.Cancel)
                 {
                     this.Show();
                 }
+
                 logInClearTextboxes();
             }
 
-            else
+            else if (validateResult == clsUser.LogInValidationResult.WrongPassword)
             {
                 logInPasswordTextBox.Text = String.Empty;
-                MessageBox.Show("Invalid Info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show($"Invalid password for {tryingToLogIn.Username}, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else if (validateResult == clsUser.LogInValidationResult.WrongUser)
+            {
+                logInPasswordTextBox.Text = String.Empty;
+
+                MessageBox.Show($"There is no username with the name {tryingToLogIn.Username}, please try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
        
-
-        private void addAllSavedUsers()
-        {
-            string[] savedUsersDirectorys = Directory.GetFiles(EditBeforeRun.savedusersDirectory);
-
-            foreach (string file in savedUsersDirectorys)
-            {
-                using (FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read))
-                {
-                    userReader = new StreamReader(fs);
-                    string accountRecord = userReader.ReadLine();
-
-                    if (accountRecord != null)
-                    {
-                        string[] thisUserArray = accountRecord.Split(EditBeforeRun.Seperator, StringSplitOptions.None);
-                        User thisUser = new User(thisUserArray);
-                        AllUsers.Add(thisUser);
-                    }
-                }
-            }
-        }
         
     }
 }

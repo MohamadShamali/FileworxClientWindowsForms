@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileworxObjectClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace Fileworx_Client
         private User LoggedInUser;
         public enum SortBy { RecentDate, OldestDate, Alphabetically };
 
-        public FileWorx(User loggedInUser)
+        public FileWorx(clsUser loggedInUser)
         {
             InitializeComponent();
 
