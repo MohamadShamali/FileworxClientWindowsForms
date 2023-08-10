@@ -17,6 +17,8 @@ namespace Fileworx_Client
     {
         // Properties
         private static List<clsFile> allFiles { get; set; }
+        private static List<clsNews> allNews { get; set; }
+        private static List<clsPhoto> allPhotos { get; set; }
         private TabPage hiddenTabPage;
         public enum SortBy { RecentDate, OldestDate, Alphabetically };
 
@@ -26,7 +28,7 @@ namespace Fileworx_Client
 
             // UI 
             splitContainer1.FixedPanel = FixedPanel.Panel1;
-            splitContainer2.FixedPanel = FixedPanel.Panel2;
+            splitContainer1.FixedPanel = FixedPanel.Panel2;
             label7.Text = Global.LoggedInUser.Name;
 
             // Hide and save hidden Tab
@@ -45,9 +47,16 @@ namespace Fileworx_Client
 
         private void addDBFilesToFilesList()
         {
-            clsFileQuery allFilesQuery = new clsFileQuery();
+            clsNewsQuery allNewsQuery = new clsNewsQuery();
+            allNews = allNewsQuery.Run();
 
-            allFiles = allFilesQuery.Run();
+            clsPhotoQuery allPhotosQuery = new clsPhotoQuery();
+            allPhotos = allPhotosQuery.Run();
+
+
+            allFiles = new List<clsFile>();
+            allFiles.AddRange(allPhotos);
+            allFiles.AddRange(allNews);
         }
 
         private void addFilesListItemsToListView()
@@ -64,6 +73,8 @@ namespace Fileworx_Client
         private void refreshFilesList()
         {
             allFiles.Clear();
+            allNews.Clear();
+            allPhotos.Clear(); 
             addDBFilesToFilesList();
         }
 
@@ -96,6 +107,118 @@ namespace Fileworx_Client
                 allFiles = sortedList;
             }
         }
+        
+        private void clearEverylabels()
+        {
+            titleLabel.Text = String.Empty;
+            dateLabel.Text = String.Empty;
+            categoryLabel.Text = String.Empty;
+            bodyRichTextBox.Text = String.Empty;
+        }
+
+        private clsFile findSelectedFile()
+        {
+            clsFile selectedFile =
+                (from file in allFiles
+                 where ((file.Name == (newsListView.SelectedItems[0].Text)) && (file.CreationDate == DateTime.Parse(newsListView.SelectedItems[0].SubItems[1].Text)))
+                 select file).FirstOrDefault();
+
+            return selectedFile;
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void newsListView_MouseClick(object sender, MouseEventArgs e)
+        {
+
+
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    News foundNews = findSelectedNews();
+
+
+            //    DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            //    if (result == DialogResult.Yes)
+            //    {
+            //        if (foundNews is Image)
+            //        {
+            //            Image foundImage = (Image)foundNews;
+            //            if (File.Exists(foundImage.ImagePath))
+            //            {
+            //                previewImagePictureBox.Image.Dispose();
+            //                previewImagePictureBox.Image = null;
+            //            }
+
+            //            clearEverylabels();
+
+            //            if (File.Exists(foundImage.ImagePath))
+            //            {
+            //                File.Delete(foundImage.ImagePath);
+            //            }
+            //        }
+
+            //        File.Delete(foundNews.textPath);
+
+            //        newsListView.SelectedItems[0].Remove();
+            //        clearEverylabels();
+            //    }
+
+            //}
+
+            clearEverylabels();
+
+            if (e.Button == MouseButtons.Left)
+            {
+                clsFile selectedFile = findSelectedFile();
+
+                label3.Text = "Category:";
+                titleLabel.Text = selectedFile.Name;
+                dateLabel.Text = selectedFile.CreationDate.ToString();
+                categoryLabel.Text = selectedFile.Description;
+                bodyRichTextBox.Text = selectedFile.Body;
+                previewImagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+
+                if (selectedFile is clsPhoto)
+                {
+                    label3.Text = "";
+                    clsPhoto selectedPhoto = (clsPhoto) selectedFile;
+
+                    if (File.Exists(selectedPhoto.Location))
+                    {
+                        if (tabControl1.TabPages.Count == 1)
+                        {
+                            tabControl1.TabPages.Add(hiddenTabPage);
+                        }
+                        previewImagePictureBox.Image= new Bitmap(selectedPhoto.Location);
+                    }
+                }
+
+                //else
+                //{
+                //    try
+                //    {
+                //        hiddenTabPage = tabControl1.TabPages[1];
+                //        tabControl1.TabPages.RemoveAt(1);
+                //        previewImagePictureBox.Image.Dispose();
+                //        previewImagePictureBox.Image = null;
+                //    }
+                //    catch { }
+                //}
+
+
+
+
+                if (newsListView.SelectedItems.Count == 0)
+                {
+                    clearEverylabels();
+                }
+            }
+
+        }
 
         //private void addThisNewsToListView(News news)
         //{
@@ -114,32 +237,6 @@ namespace Fileworx_Client
         //    {
         //        RefreshNews();
         //    }
-        //}
-
-        //private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
-
-
-        //private void clearEverylabels()
-        //{
-        //    titleLabel.Text = String.Empty;
-        //    dateLabel.Text = String.Empty;
-        //    categoryLabel.Text = String.Empty;
-
-        //    bodyRichTextBox.Text = String.Empty;
-
-
-        //}
-
-        //private News findSelectedNews()
-        //{
-        //    News foundNews =
-        //        (from News in allNews
-        //         where News.Title == (newsListView.SelectedItems[0].Text)
-        //         select News).FirstOrDefault();
-        //    return foundNews;
         //}
 
         //private void recentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,95 +267,7 @@ namespace Fileworx_Client
         //    alphabeticallyToolStripMenuItem.Checked = false;
         //}
 
-        //private void newsListView_MouseClick(object sender, MouseEventArgs e)
-        //{
 
-
-        //    if (e.Button == MouseButtons.Right)
-        //    {
-        //        News foundNews = findSelectedNews();
-
-
-        //        DialogResult result = MessageBox.Show("Are you sure you want to delete?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-        //        if (result == DialogResult.Yes)
-        //        {
-        //            if (foundNews is Image)
-        //            {
-        //                Image foundImage = (Image)foundNews;
-        //                if (File.Exists(foundImage.ImagePath))
-        //                {
-        //                    previewImagePictureBox.Image.Dispose();
-        //                    previewImagePictureBox.Image = null;
-        //                }
-
-        //                clearEverylabels();
-
-        //                if (File.Exists(foundImage.ImagePath))
-        //                {
-        //                    File.Delete(foundImage.ImagePath);
-        //                }
-        //            }
-
-        //            File.Delete(foundNews.textPath);
-
-        //            newsListView.SelectedItems[0].Remove();
-        //            clearEverylabels();
-        //        }
-
-        //    } 
-
-        //        clearEverylabels();
-
-        //    if(e.Button == MouseButtons.Left) 
-        //    {
-        //        News foundNews = findSelectedNews();
-
-        //        label3.Text = "Category:";
-        //        titleLabel.Text = foundNews.Title;
-        //        dateLabel.Text = foundNews.Date.ToString();
-        //        categoryLabel.Text = foundNews.Category;
-        //        bodyRichTextBox.Text = foundNews.Body;
-        //        previewImagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-
-        //        if (foundNews is Image)
-        //        {
-        //            label3.Text ="";
-        //            Image foundImage = (Image)foundNews;
-
-        //            if (File.Exists(foundImage.ImagePath))
-        //            {
-        //                if (tabControl1.TabPages.Count == 1)
-        //                {
-        //                    tabControl1.TabPages.Add(hiddenTabPage);
-        //                }
-        //                showImage(foundImage.ImagePath);
-        //            }
-        //        }
-
-        //        else
-        //        {
-        //            try
-        //            {
-        //                hiddenTabPage = tabControl1.TabPages[1];
-        //                tabControl1.TabPages.RemoveAt(1);
-        //                previewImagePictureBox.Image.Dispose();
-        //                previewImagePictureBox.Image = null;
-        //            }
-        //            catch { }
-        //        }
-
-
-
-
-        //        if (newsListView.SelectedItems.Count == 0)
-        //        {
-        //            clearEverylabels();
-        //        }
-        //    }
-        
-        //    }
-        
 
         //private void newsListView_MouseDoubleClick(object sender, MouseEventArgs e)
         //{
