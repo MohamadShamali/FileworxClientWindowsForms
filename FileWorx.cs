@@ -28,7 +28,7 @@ namespace Fileworx_Client
 
             // UI 
             splitContainer1.FixedPanel = FixedPanel.Panel1;
-            splitContainer1.FixedPanel = FixedPanel.Panel2;
+            splitContainer2.FixedPanel = FixedPanel.Panel2;
             label7.Text = Global.LoggedInUser.Name;
 
             // Hide and save hidden Tab
@@ -311,11 +311,11 @@ namespace Fileworx_Client
         //    usersList.ShowDialog();
         //}
 
-        //private void FileWorx_Resize(object sender, EventArgs e)
-        //{
-        //    tabControl1.Height = this.Height /3 ;
-        //    newsListView.Height = splitContainer2.Panel1.Height - 10 ;
-        //}
+        private void FileWorx_Resize(object sender, EventArgs e)
+        {
+            tabControl1.Height = this.Height / 3;
+            newsListView.Height = splitContainer2.Panel1.Height - 10;
+        }
 
         //private void addNewsToolStripMenuItem_Click(object sender, EventArgs e)
         //{
