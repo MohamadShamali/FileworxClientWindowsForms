@@ -1,6 +1,6 @@
 ﻿namespace Fileworx_Client
 {
-    partial class Add_Images
+    partial class AddImageWindow
     {
         /// <summary>
         /// Required designer variable.

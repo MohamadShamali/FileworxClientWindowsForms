@@ -55,11 +55,11 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_Images.cs">
+    <Compile Include="AddImageWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_Images.Designer.cs">
-      <DependentUpon>Add_Images.cs</DependentUpon>
+    <Compile Include="AddImageWindow.Designer.cs">
+      <DependentUpon>AddImageWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Add_News.cs">
       <SubType>Form</SubType>
@@ -124,8 +124,8 @@
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_Images.resx">
-      <DependentUpon>Add_Images.cs</DependentUpon>
+    <EmbeddedResource Include="AddImageWindow.resx">
+      <DependentUpon>AddImageWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add_News.resx">
       <DependentUpon>Add_News.cs</DependentUpon>
