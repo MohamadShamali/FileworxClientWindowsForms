@@ -53,6 +53,7 @@ namespace Fileworx_Client
             else
             {
                 MessageBox.Show("Empty fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult = DialogResult.None;
             }
         }
     }

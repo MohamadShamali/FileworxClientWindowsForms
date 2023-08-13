@@ -1,6 +1,6 @@
 ﻿namespace Fileworx_Client
 {
-    partial class AddUser
+    partial class AddUserWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.isAdminComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +73,7 @@
             // createButton
             // 
             this.createButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.createButton.Location = new System.Drawing.Point(155, 187);
+            this.createButton.Location = new System.Drawing.Point(155, 223);
             this.createButton.Name = "createButton";
             this.createButton.Size = new System.Drawing.Size(114, 23);
             this.createButton.TabIndex = 20;
@@ -116,18 +118,43 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(275, 187);
+            this.cancelButton.Location = new System.Drawing.Point(275, 223);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(74, 23);
             this.cancelButton.TabIndex = 24;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
-            // AddUser
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(63, 193);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 15);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Is Admin";
+            // 
+            // isAdminComboBox
+            // 
+            this.isAdminComboBox.AllowDrop = true;
+            this.isAdminComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.isAdminComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.isAdminComboBox.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.isAdminComboBox.Location = new System.Drawing.Point(155, 189);
+            this.isAdminComboBox.Name = "isAdminComboBox";
+            this.isAdminComboBox.Size = new System.Drawing.Size(194, 21);
+            this.isAdminComboBox.TabIndex = 46;
+            // 
+            // AddUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 228);
+            this.ClientSize = new System.Drawing.Size(485, 261);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.isAdminComboBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.signUpPasswordTextBox);
@@ -139,9 +166,9 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(501, 267);
-            this.MinimumSize = new System.Drawing.Size(501, 267);
-            this.Name = "AddUser";
+            this.MaximumSize = new System.Drawing.Size(501, 300);
+            this.MinimumSize = new System.Drawing.Size(501, 300);
+            this.Name = "AddUserWindow";
             this.Text = "Add User";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -151,14 +178,16 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox signUpPasswordTextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button createButton;
-        private System.Windows.Forms.TextBox signUpLoginNameTextBox;
-        private System.Windows.Forms.TextBox signUpNameTextBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button cancelButton;
+        protected System.Windows.Forms.PictureBox pictureBox2;
+        protected System.Windows.Forms.TextBox signUpPasswordTextBox;
+        protected System.Windows.Forms.Label label3;
+        protected System.Windows.Forms.Button createButton;
+        protected System.Windows.Forms.TextBox signUpLoginNameTextBox;
+        protected System.Windows.Forms.TextBox signUpNameTextBox;
+        protected System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.Label label2;
+        protected System.Windows.Forms.Button cancelButton;
+        protected System.Windows.Forms.Label label4;
+        protected System.Windows.Forms.ComboBox isAdminComboBox;
     }
 }

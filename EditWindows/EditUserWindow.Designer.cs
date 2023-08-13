@@ -1,6 +1,6 @@
 ﻿namespace Fileworx_Client
 {
-    partial class CommonNews
+    partial class EditUserWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // CommonNews
+            // createButton
+            // 
+            this.createButton.Text = "Edit";
+            // 
+            // EditUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 506);
-            this.Name = "CommonNews";
-            this.Text = "CommonNews";
+            this.ClientSize = new System.Drawing.Size(485, 261);
+            this.Name = "EditUserWindow";
+            this.Text = "Edit User";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

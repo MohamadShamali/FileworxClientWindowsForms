@@ -171,7 +171,6 @@
             this.usersListView.TabIndex = 20;
             this.usersListView.UseCompatibleStateImageBehavior = false;
             this.usersListView.View = System.Windows.Forms.View.Details;
-            this.usersListView.Click += new System.EventHandler(this.usersListView_Click);
             this.usersListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.usersListView_MouseClick);
             this.usersListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.usersListView_MouseDoubleClick);
             // 

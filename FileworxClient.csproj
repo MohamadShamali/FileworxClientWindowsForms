@@ -49,76 +49,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUser.cs">
+    <Compile Include="AddWindows\AddUserWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUser.Designer.cs">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <Compile Include="AddWindows\AddUserWindow.Designer.cs">
+      <DependentUpon>AddUserWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddImageWindow.cs">
+    <Compile Include="AddWindows\AddImageWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddImageWindow.Designer.cs">
+    <Compile Include="AddWindows\AddImageWindow.Designer.cs">
       <DependentUpon>AddImageWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewsWindow.cs">
+    <Compile Include="AddWindows\AddNewsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewsWindow.Designer.cs">
+    <Compile Include="AddWindows\AddNewsWindow.Designer.cs">
       <DependentUpon>AddNewsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommonNews.cs">
+    <Compile Include="EditWindows\EditImageWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CommonNews.Designer.cs">
-      <DependentUpon>CommonNews.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditBeforeRun.cs" />
-    <Compile Include="EditImageWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditImageWindow.Designer.cs">
+    <Compile Include="EditWindows\EditImageWindow.Designer.cs">
       <DependentUpon>EditImageWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditNewsWindow.cs">
+    <Compile Include="EditWindows\EditNewsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditNewsWindow.Designer.cs">
+    <Compile Include="EditWindows\EditNewsWindow.Designer.cs">
       <DependentUpon>EditNewsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditUser.cs">
+    <Compile Include="EditWindows\EditUserWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditUser.Designer.cs">
-      <DependentUpon>EditUser.cs</DependentUpon>
+    <Compile Include="EditWindows\EditUserWindow.Designer.cs">
+      <DependentUpon>EditUserWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Edit_Image.cs">
+    <Compile Include="MainForms\FileWorx.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit_Image.Designer.cs">
-      <DependentUpon>Edit_Image.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Edit_News.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Edit_News.Designer.cs">
-      <DependentUpon>Edit_News.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FileWorx.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FileWorx.Designer.cs">
+    <Compile Include="MainForms\FileWorx.Designer.cs">
       <DependentUpon>FileWorx.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="Image.cs" />
-    <Compile Include="LogIn.cs">
+    <Compile Include="MainForms\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LogIn.Designer.cs">
+    <Compile Include="MainForms\LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="News.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -126,44 +105,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="UsersList.cs">
+    <Compile Include="MainForms\UsersList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsersList.Designer.cs">
+    <Compile Include="MainForms\UsersList.Designer.cs">
       <DependentUpon>UsersList.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddUser.resx">
-      <DependentUpon>AddUser.cs</DependentUpon>
+    <EmbeddedResource Include="AddWindows\AddUserWindow.resx">
+      <DependentUpon>AddUserWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddImageWindow.resx">
+    <EmbeddedResource Include="AddWindows\AddImageWindow.resx">
       <DependentUpon>AddImageWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewsWindow.resx">
+    <EmbeddedResource Include="AddWindows\AddNewsWindow.resx">
       <DependentUpon>AddNewsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CommonNews.resx">
-      <DependentUpon>CommonNews.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditImageWindow.resx">
+    <EmbeddedResource Include="EditWindows\EditImageWindow.resx">
       <DependentUpon>EditImageWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditNewsWindow.resx">
+    <EmbeddedResource Include="EditWindows\EditNewsWindow.resx">
       <DependentUpon>EditNewsWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditUser.resx">
-      <DependentUpon>EditUser.cs</DependentUpon>
+    <EmbeddedResource Include="EditWindows\EditUserWindow.resx">
+      <DependentUpon>EditUserWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edit_Image.resx">
-      <DependentUpon>Edit_Image.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Edit_News.resx">
-      <DependentUpon>Edit_News.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FileWorx.resx">
+    <EmbeddedResource Include="MainForms\FileWorx.resx">
       <DependentUpon>FileWorx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LogIn.resx">
+    <EmbeddedResource Include="MainForms\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -179,7 +148,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsersList.resx">
+    <EmbeddedResource Include="MainForms\UsersList.resx">
       <DependentUpon>UsersList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

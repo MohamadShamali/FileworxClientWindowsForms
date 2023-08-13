@@ -274,7 +274,7 @@
             this.oldestToolStripMenuItem,
             this.alphabeticallyToolStripMenuItem});
             this.sortByToolStripMenuItem.Name = "sortByToolStripMenuItem";
-            this.sortByToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.sortByToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sortByToolStripMenuItem.Text = "Sort By..";
             // 
             // showToolStripMenuItem
@@ -289,20 +289,21 @@
             // usersListToolStripMenuItem
             // 
             this.usersListToolStripMenuItem.Name = "usersListToolStripMenuItem";
-            this.usersListToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.usersListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usersListToolStripMenuItem.Text = "Users List";
+            this.usersListToolStripMenuItem.Click += new System.EventHandler(this.usersListToolStripMenuItem_Click);
             // 
             // addNewsToolStripMenuItem
             // 
             this.addNewsToolStripMenuItem.Name = "addNewsToolStripMenuItem";
-            this.addNewsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNewsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.addNewsToolStripMenuItem.Text = "Add News";
             this.addNewsToolStripMenuItem.Click += new System.EventHandler(this.addNewsToolStripMenuItem_Click);
             // 
             // addImageToolStripMenuItem
             // 
             this.addImageToolStripMenuItem.Name = "addImageToolStripMenuItem";
-            this.addImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addImageToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.addImageToolStripMenuItem.Text = "Add Image";
             this.addImageToolStripMenuItem.Click += new System.EventHandler(this.addImageToolStripMenuItem_Click);
             // 

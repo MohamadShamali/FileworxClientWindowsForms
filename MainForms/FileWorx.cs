@@ -340,11 +340,11 @@ namespace Fileworx_Client
         //}
 
 
-        //private void usersListToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    UsersList usersList = new UsersList(LoggedInUser);
-        //    usersList.ShowDialog();
-        //}
+        private void usersListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsersList usersList = new UsersList();
+            usersList.ShowDialog();
+        }
 
         //private void showImage(string ImagePath)
         //{
