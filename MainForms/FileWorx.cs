@@ -331,42 +331,11 @@ namespace Fileworx_Client
             }
         }
 
-        //private void addThisNewsToListView(News news)
-        //{
-        //    var listViewNews = new ListViewItem($"{news.Title}");
-        //    listViewNews.SubItems.Add($"{news.Date}");
-        //    listViewNews.SubItems.Add($"{news.Body}");
-        //    newsListView.Items.Add(listViewNews);
-        //}
-
-
         private void usersListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UsersList usersList = new UsersList();
-            usersList.ShowDialog();
+            usersList.Show();
         }
-
-        //private void showImage(string ImagePath)
-        //{
-        //    if(previewImagePictureBox.Image!=null)
-        //    {
-        //        previewImagePictureBox.Image.Dispose();
-        //    }
-
-
-        //    string showedImagesPath = EditBeforeRun.ImagesDirectory + @"\ShowedImage\FileWorx";
-        //    foreach (string file in Directory.GetFiles(showedImagesPath))
-        //    {
-        //        File.Delete(file);
-        //    }
-        //    string s = ImagePath.Substring(0, ImagePath.Length - 2); 
-        //    string name = Path.GetFileName(s);
-        //    string newPath = Path.Combine(showedImagesPath,name );
-        //    File.Copy(ImagePath, newPath);
-
-        //    string showedImagePath = Directory.GetFiles(showedImagesPath).FirstOrDefault();
-        //    previewImagePictureBox.Image = new Bitmap(showedImagePath);
-        //}
 
     }
 }

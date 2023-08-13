@@ -11,13 +11,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FileworxObjectClassLibrary;
-using static FileworxObjectClassLibrary.clsUser;
 
 namespace Fileworx_Client
 {
     public partial class LogIn : Form
     {
-
+        
         public LogIn()
         {
             InitializeComponent();

@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FileworxObjectClassLibrary">
-      <HintPath>..\FileworxObjectClassLibrary\bin\Debug\FileworxObjectClassLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -166,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileworxObjectClassLibrary\FileworxObjectClassLibrary.csproj">
+      <Project>{407676ee-b9b6-4618-b0cb-0a42e72ebe0c}</Project>
+      <Name>FileworxObjectClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

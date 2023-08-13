@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileworxClient", "FileworxClient.csproj", "{E03AC36C-033B-4DDE-B00C-E5A51F648FDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileworxObjectClassLibrary", "..\FileworxObjectClassLibrary\FileworxObjectClassLibrary.csproj", "{407676EE-B9B6-4618-B0CB-0A42E72EBE0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E03AC36C-033B-4DDE-B00C-E5A51F648FDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E03AC36C-033B-4DDE-B00C-E5A51F648FDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E03AC36C-033B-4DDE-B00C-E5A51F648FDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{407676EE-B9B6-4618-B0CB-0A42E72EBE0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{407676EE-B9B6-4618-B0CB-0A42E72EBE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{407676EE-B9B6-4618-B0CB-0A42E72EBE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{407676EE-B9B6-4618-B0CB-0A42E72EBE0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
