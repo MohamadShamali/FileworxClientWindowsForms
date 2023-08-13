@@ -10,5 +10,7 @@ namespace Fileworx_Client
     internal class Global
     {
         public static clsUser LoggedInUser { get; set; }
+
+
     }
 }

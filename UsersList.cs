@@ -13,18 +13,14 @@ namespace Fileworx_Client
 {
     public partial class UsersList : Form
     {
-        public User LoggedInUser;
-        private StreamReader userReader;
-        private List<User> AllUsers = new List<User>();
-        public UsersList(User loggedInUser)
+        public UsersList()
         {
             InitializeComponent();
 
             splitContainer1.FixedPanel = FixedPanel.Panel2;
             splitContainer2.FixedPanel = FixedPanel.Panel1;
 
-            LoggedInUser = loggedInUser;
-            label7.Text = loggedInUser.Name;
+            label7.Text = Global.LoggedInUser.Name;
 
             usersListView.Items.Clear();
             addAllSavedUsers();

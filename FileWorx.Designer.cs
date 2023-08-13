@@ -208,6 +208,7 @@
             this.newsListView.UseCompatibleStateImageBehavior = false;
             this.newsListView.View = System.Windows.Forms.View.Details;
             this.newsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.newsListView_MouseClick);
+            this.newsListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.newsListView_MouseDoubleClick);
             // 
             // tabPage2
             // 
@@ -246,14 +247,14 @@
             // alphabeticallyToolStripMenuItem
             // 
             this.alphabeticallyToolStripMenuItem.Name = "alphabeticallyToolStripMenuItem";
-            this.alphabeticallyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alphabeticallyToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.alphabeticallyToolStripMenuItem.Text = "Alphabetically";
             this.alphabeticallyToolStripMenuItem.Click += new System.EventHandler(this.alphabeticallyToolStripMenuItem_Click);
             // 
             // oldestToolStripMenuItem
             // 
             this.oldestToolStripMenuItem.Name = "oldestToolStripMenuItem";
-            this.oldestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oldestToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.oldestToolStripMenuItem.Text = "Oldest";
             this.oldestToolStripMenuItem.Click += new System.EventHandler(this.oldestToolStripMenuItem_Click);
             // 
@@ -262,7 +263,7 @@
             this.recentToolStripMenuItem.Checked = true;
             this.recentToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.recentToolStripMenuItem.Name = "recentToolStripMenuItem";
-            this.recentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recentToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.recentToolStripMenuItem.Text = "Recent";
             this.recentToolStripMenuItem.Click += new System.EventHandler(this.recentToolStripMenuItem_Click);
             // 
@@ -273,7 +274,7 @@
             this.oldestToolStripMenuItem,
             this.alphabeticallyToolStripMenuItem});
             this.sortByToolStripMenuItem.Name = "sortByToolStripMenuItem";
-            this.sortByToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sortByToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.sortByToolStripMenuItem.Text = "Sort By..";
             // 
             // showToolStripMenuItem
@@ -288,19 +289,20 @@
             // usersListToolStripMenuItem
             // 
             this.usersListToolStripMenuItem.Name = "usersListToolStripMenuItem";
-            this.usersListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usersListToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.usersListToolStripMenuItem.Text = "Users List";
             // 
             // addNewsToolStripMenuItem
             // 
             this.addNewsToolStripMenuItem.Name = "addNewsToolStripMenuItem";
-            this.addNewsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.addNewsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewsToolStripMenuItem.Text = "Add News";
+            this.addNewsToolStripMenuItem.Click += new System.EventHandler(this.addNewsToolStripMenuItem_Click);
             // 
             // addImageToolStripMenuItem
             // 
             this.addImageToolStripMenuItem.Name = "addImageToolStripMenuItem";
-            this.addImageToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.addImageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addImageToolStripMenuItem.Text = "Add Image";
             this.addImageToolStripMenuItem.Click += new System.EventHandler(this.addImageToolStripMenuItem_Click);
             // 

@@ -61,11 +61,11 @@
     <Compile Include="AddImageWindow.Designer.cs">
       <DependentUpon>AddImageWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_News.cs">
+    <Compile Include="AddNewsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_News.Designer.cs">
-      <DependentUpon>Add_News.cs</DependentUpon>
+    <Compile Include="AddNewsWindow.Designer.cs">
+      <DependentUpon>AddNewsWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="CommonNews.cs">
       <SubType>Form</SubType>
@@ -74,6 +74,18 @@
       <DependentUpon>CommonNews.cs</DependentUpon>
     </Compile>
     <Compile Include="EditBeforeRun.cs" />
+    <Compile Include="EditImageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditImageWindow.Designer.cs">
+      <DependentUpon>EditImageWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditNewsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditNewsWindow.Designer.cs">
+      <DependentUpon>EditNewsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,11 +139,17 @@
     <EmbeddedResource Include="AddImageWindow.resx">
       <DependentUpon>AddImageWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_News.resx">
-      <DependentUpon>Add_News.cs</DependentUpon>
+    <EmbeddedResource Include="AddNewsWindow.resx">
+      <DependentUpon>AddNewsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommonNews.resx">
       <DependentUpon>CommonNews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditImageWindow.resx">
+      <DependentUpon>EditImageWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditNewsWindow.resx">
+      <DependentUpon>EditNewsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditUser.resx">
       <DependentUpon>EditUser.cs</DependentUpon>

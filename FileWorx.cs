@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Fileworx_Client.FileWorx;
@@ -79,9 +80,9 @@ namespace Fileworx_Client
             addDBFilesToFilesList();
         }
 
-        private void sortFilesList(SortBy sortby)
+        private void sortFilesList(SortBy sortBy)
         {
-            if (sortby == SortBy.RecentDate)
+            if (sortBy == SortBy.RecentDate)
             {
                 var sortedList = (from file in allFiles
                                   orderby file.CreationDate descending
@@ -90,7 +91,7 @@ namespace Fileworx_Client
                 allFiles = sortedList;
             }
 
-            if (sortby == SortBy.OldestDate)
+            if (sortBy == SortBy.OldestDate)
             {
                 var sortedList = (from file in allFiles
                                   orderby file.CreationDate ascending
@@ -99,7 +100,7 @@ namespace Fileworx_Client
                 allFiles = sortedList;
             }
 
-            if (sortby == SortBy.Alphabetically)
+            if (sortBy == SortBy.Alphabetically)
             {
                 var sortedList = (from file in allFiles
                                   orderby file.Name ascending
@@ -109,7 +110,7 @@ namespace Fileworx_Client
             }
         }
         
-        private void clearAllDisplaylabels()
+        private void clearAllDisplayLabels()
         {
             titleLabel.Text = String.Empty;
             dateLabel.Text = String.Empty;
@@ -147,7 +148,11 @@ namespace Fileworx_Client
                     {
                         tabControl1.TabPages.Add(hiddenTabPage);
                     }
-                    previewImagePictureBox.Image = new Bitmap(selectedPhoto.Location);
+
+                    using (var img = new Bitmap(selectedPhoto.Location))
+                    {
+                        previewImagePictureBox.Image = new Bitmap(img);
+                    }
                 }
             }
 
@@ -160,13 +165,11 @@ namespace Fileworx_Client
 
                 try
                 {
-                    if (tabControl1.TabPages.Count == 1)
+                    if (tabControl1.TabPages.Count == 2)
                     {
                         hiddenTabPage = tabControl1.TabPages[1];
                         tabControl1.TabPages.RemoveAt(1);
                     }
-                    previewImagePictureBox.Image.Dispose();
-                    previewImagePictureBox.Image = null;
                 }
                 catch 
                 { 
@@ -222,14 +225,14 @@ namespace Fileworx_Client
                 if (result == DialogResult.Yes)
                 {
                   newsListView.SelectedItems.Clear();
-                  clearAllDisplaylabels();
+                  clearAllDisplayLabels();
 
                   deleteFile(selectedFile);
 
                   refreshFilesList();
                   addFilesListItemsToListView();
 
-                  if (tabControl1.TabPages.Count == 1)
+                  if (tabControl1.TabPages.Count == 2)
                   {
                     hiddenTabPage = tabControl1.TabPages[1];
                     tabControl1.TabPages.RemoveAt(1);
@@ -262,6 +265,18 @@ namespace Fileworx_Client
             }
         }
 
+        private void addNewsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddNewsWindow add_News = new AddNewsWindow();
+            DialogResult result = add_News.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                refreshFilesList();
+                addFilesListItemsToListView();
+            }
+        }
+
         private void recentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sortFilesList(SortBy.RecentDate);
@@ -286,6 +301,36 @@ namespace Fileworx_Client
             alphabeticallyToolStripMenuItem.Checked = true;
         }
 
+        private void newsListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            clsFile fileToEdit = findSelectedFile();
+            if (fileToEdit is clsPhoto)
+            {
+
+                clsPhoto photoToEdit = (clsPhoto) fileToEdit;
+                EditImageWindow editImage = new EditImageWindow(photoToEdit);
+
+                DialogResult result = editImage.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    refreshFilesList();
+                    addFilesListItemsToListView();
+                }
+            }
+            else
+            {
+                clsNews photoToEdit = (clsNews) fileToEdit;
+                EditNewsWindow editNews = new EditNewsWindow(photoToEdit);
+
+                DialogResult result = editNews.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    refreshFilesList();
+                    addFilesListItemsToListView();
+                }
+            }
+        }
+
         //private void addThisNewsToListView(News news)
         //{
         //    var listViewNews = new ListViewItem($"{news.Title}");
@@ -294,41 +339,6 @@ namespace Fileworx_Client
         //    newsListView.Items.Add(listViewNews);
         //}
 
-        //private void newsListView_MouseDoubleClick(object sender, MouseEventArgs e)
-        //{
-        //    News foundNews = findSelectedNews();
-        //    if (foundNews is Image)
-        //    {
-        //        Image foundImage = (Image)foundNews;
-        //        Edit_Image editImage = new Edit_Image(foundImage);
-
-        //        DialogResult result = editImage.ShowDialog();
-        //        if (result == DialogResult.OK)
-        //        {
-        //            newsListView.Items.Clear();
-        //            addAllSavedNews();
-        //            clearEverylabels();
-        //        }
-        //        try
-        //        {
-        //            hiddenTabPage = tabControl1.TabPages[1];
-        //            tabControl1.TabPages.RemoveAt(1);
-        //        }
-        //        catch { }
-        //    }
-        //    else
-        //    {
-        //        Edit_News editNews = new Edit_News(foundNews);
-
-        //        DialogResult result = editNews.ShowDialog();
-        //        if (result == DialogResult.OK)
-        //        {
-        //            newsListView.Items.Clear();
-        //            addAllSavedNews();
-        //            clearEverylabels();
-        //        }
-        //    }
-        //}
 
         //private void usersListToolStripMenuItem_Click(object sender, EventArgs e)
         //{
@@ -336,16 +346,6 @@ namespace Fileworx_Client
         //    usersList.ShowDialog();
         //}
 
-        //private void addNewsToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    Add_News add_News = new Add_News();
-        //    DialogResult result = add_News.ShowDialog();
-
-        //    if (result == DialogResult.OK)
-        //    {
-        //        RefreshNews();
-        //    }
-        //}
         //private void showImage(string ImagePath)
         //{
         //    if(previewImagePictureBox.Image!=null)

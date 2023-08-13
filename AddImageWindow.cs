@@ -12,19 +12,19 @@ using System.Windows.Forms;
 
 namespace Fileworx_Client
 {
-    public partial class AddImageWindow : CommonNews
+    public partial class AddImageWindow : Form
     {
         public AddImageWindow()
         {
             InitializeComponent();
         }
 
-        private void cancelAddNewsbutton_Click(object sender, EventArgs e)
+        protected void cancelAddNewsbutton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void saveAddNewsButton_Click(object sender, EventArgs e)
+        protected virtual void saveAddNewsButton_Click(object sender, EventArgs e)
         {
             if ((tiltleTextBox.Text != String.Empty) && (descriptionTextBox.Text != String.Empty) 
                 && (bodyTextBox.Text != String.Empty) && (File.Exists(imagePathTextBox.Text)))
@@ -48,7 +48,7 @@ namespace Fileworx_Client
             }
         }
 
-        private void browseImageButton_Click(object sender, EventArgs e)
+        protected void browseImageButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog browseImageDialog = new OpenFileDialog();
             browseImageDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
@@ -57,7 +57,11 @@ namespace Fileworx_Client
             {
                 imagePathTextBox.Text = browseImageDialog.FileName;
                 previewBrowsedPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                previewBrowsedPictureBox.Image = new Bitmap(browseImageDialog.FileName);
+
+                using (var img = new Bitmap(browseImageDialog.FileName))
+                {
+                    previewBrowsedPictureBox.Image = new Bitmap(img);
+                }
             }
         }
     }
