@@ -165,8 +165,8 @@
     <None Include="Resources\download.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FileworxObjectClassLibrary\FileworxObjectClassLibrary.csproj">
-      <Project>{407676ee-b9b6-4618-b0cb-0a42e72ebe0c}</Project>
+    <ProjectReference Include="..\FileworxObjectClassLibrary\FileworxObjectClassLibrary\FileworxObjectClassLibrary.csproj">
+      <Project>{9ac3b32e-999b-45d6-85d2-d1831c8719ca}</Project>
       <Name>FileworxObjectClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
