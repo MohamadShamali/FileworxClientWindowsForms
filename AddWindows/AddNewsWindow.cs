@@ -35,6 +35,7 @@ namespace Fileworx_Client
                     Name = tiltleTextBox.Text,
                     Body = bodyTextBox.Text,
                     Category = categoryComboBox.SelectedItem.ToString(),
+                    Class = clsBusinessObject.Type.News
                 };
 
                 newNews.Insert();

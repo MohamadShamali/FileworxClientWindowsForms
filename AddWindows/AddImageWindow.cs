@@ -37,7 +37,8 @@ namespace Fileworx_Client
                   CreatorName = Global.LoggedInUser.Name,
                   Name = tiltleTextBox.Text,
                   Body = bodyTextBox.Text,
-                  Location = imagePathTextBox.Text 
+                  Location = imagePathTextBox.Text,
+                    Class = clsBusinessObject.Type.Photo
                 };
                 
                 newPhoto.Insert();

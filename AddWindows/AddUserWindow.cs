@@ -37,8 +37,9 @@ namespace Fileworx_Client
                         Name = signUpNameTextBox.Text,
                         Username = signUpLoginNameTextBox.Text,
                         Password = signUpPasswordTextBox.Text,
-                        IsAdmin = ((isAdminComboBox.SelectedIndex == 0) ? false : true)
-                };
+                        IsAdmin = ((isAdminComboBox.SelectedIndex == 0) ? false : true),
+                        Class = clsBusinessObject.Type.User
+                    };
 
                     newUser.Insert();
 
